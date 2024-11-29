@@ -88,8 +88,10 @@ def IndexView(page:ft.Page, params):
 
     def restart_clicked(e):
 
-        i= random.randrange(0,len(questions.all_questions))
-        new_round(i)
+        nonlocal  question_index
+        question_index = random.randrange(0,len(questions.all_questions))
+        new_round(question_index)
+        
     def btn_question1_clicked(e):
         page.go("/question/1")
 
