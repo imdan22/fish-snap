@@ -49,6 +49,9 @@ def IndexView(page:ft.Page, params):
 
        answers = questions.get_answers(index)
        answers_column.controls.clear()
+       lst_answer_boxes.clear()
+       lst_user_answers.clear()
+       update_score(-score)
        for answer_text, point in answers:
                row= ft.Row()
                L1 =[]
