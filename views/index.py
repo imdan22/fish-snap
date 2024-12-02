@@ -49,6 +49,9 @@ def IndexView(page:ft.Page, params):
 
        answers = questions.get_answers(index)
        answers_column.controls.clear()
+       lst_answer_boxes.clear()
+       lst_user_answers.clear()
+       update_score(-score)
        for answer_text, point in answers:
                row= ft.Row()
                L1 =[]
@@ -88,8 +91,10 @@ def IndexView(page:ft.Page, params):
 
     def restart_clicked(e):
 
-        i= random.randrange(0,len(questions.all_questions))
-        new_round(i)
+        nonlocal  question_index
+        question_index = random.randrange(0,len(questions.all_questions))
+        new_round(question_index)
+        
     def btn_question1_clicked(e):
         page.go("/question/1")
 
